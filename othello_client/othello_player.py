@@ -6,8 +6,8 @@ from intelligence import AI_MOVE
 
 ### Public IP Server
 ### Testing Server
-host_name = 'http://localhost:8000'
-# host_name = 'http://ec2-18-224-108-149.us-east-2.compute.amazonaws.com:8000'
+#host_name = 'http://localhost:8000'
+host_name = 'http://ec2-3-134-244-212.us-east-2.compute.amazonaws.com:8000'
 
 class OthelloPlayer():
 
@@ -69,7 +69,7 @@ class OthelloPlayer():
                                     match_info['match'] + '&row=' + str(row) + '&col=' + str(col))
                                 move = move.json()
                                 print(move['message'])
-                            time.sleep(10)
+                            time.sleep(2)
                             turn_info = requests.post(host_name + '/player/turn_to_move?session_name=' + self.session_name + '&player_name=' + self.username + '&match_id=' +match_info['match'])
                             turn_info = turn_info.json()
 
